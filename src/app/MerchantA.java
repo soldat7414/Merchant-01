@@ -12,7 +12,7 @@ public class MerchantA extends Merchant implements Bonus {
     public String infoMerchant(){
         String name = getName();
         String phone = getPhone();
-        return "Продавец: \" + name + \", \" + phone + \", \" + email + \"\\n";
+        return "Продавец: " + name + ", " + phone + ", " + email + "\n";
     }
 
     @Override
