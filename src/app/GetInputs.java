@@ -22,9 +22,26 @@ public class GetInputs {
         System.out.println("Введите название продукта");
         if(scanner.hasNextLine()) inputs.setProductName(scanner.nextLine());
         System.out.println("Введите количество продукта "+ inputs.getProductName());
-        if(scanner.hasNextInt()) inputs.setQuantity(scanner.nextInt());
+        boolean right = false;
+        do {
+            if(scanner.hasNextInt()){
+                inputs.setQuantity(scanner.nextInt());
+                right = true;
+            } else {
+                System.out.println(scanner.nextLine() + " не является целочисленным значением! \n Введите количество продукта "+inputs.getProductName());
+            }
+        }while(!right);
         System.out.println("Введите цену еденицы (грн.) "+ inputs.getProductName());
-        if(scanner.hasNextDouble()) inputs.setPrice(scanner.nextDouble());
+        right = false;
+        do {
+            if(scanner.hasNextDouble()){
+                inputs.setPrice(scanner.nextDouble());
+                right = true;
+            } else{
+                System.out.println(scanner.nextLine() + " не является числом с плавающей точкой! \n Введите цену еденицы продукта "+inputs.getProductName());
+            }
+        }while (!right);
+
         scanner.close();
         return inputs;
     }
