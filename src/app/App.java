@@ -16,7 +16,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        initVars();
+        initVars(new GetInputs().initVars());
         showData(processData());
     }
 
@@ -27,6 +27,15 @@ public class App {
         productName = "апельсины";
         quantity = 1000;
         price = 19.99;
+    }
+
+    private static void initVars(GetInputs inputs){
+        merchantName = inputs.getMerchantName();
+        email = inputs.getEmail();
+        phone = inputs.getPhone();
+        productName = inputs.getProductName();
+        quantity = inputs.getQuantity();
+        price = inputs.getPrice();
     }
 
     private static String processData(){
